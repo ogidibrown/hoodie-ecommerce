@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <div>
        
-            <Image src='/hero.png' width={1000} height={1000} alt='hero' className='w-[1446px] h-[964px]'/>
+            <Image src='/hero.png' width={1000} height={1000} alt='hero' className='w-full h-[964px]'/>
         
        
     </div>

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import Logo from '../../../../public/logo.png'
+import Logo from '../../../../public/logo1.png'
 import {FaBars, FaShoppingCart} from 'react-icons/fa'
 import {BsFillBagFill} from 'react-icons/bs'
 import {ImSearch} from 'react-icons/im'
@@ -55,7 +55,7 @@ const Navbar = () => {
             <div className='flex items-center gap-1 md:gap-2'>
                 < FaBars  className='text-[#111] md:w-[25px] md:h-[25px] cursor-pointer ' onClick={()=>dispatch(setSidebarOn())}  />
                < BsFillBagFill className='text-[#111] md:w-[25px] md:h-[25px]' />
-               <Link href="/" className='flex items-center' ><Image src={Logo} width={50} height={50} className='flex items-center pt-1' /></Link>
+               <Link href="/" className='flex items-center' ><Image src={Logo} width={100} height={100} className='flex items-center pt-1' /></Link>
 
             </div>
             <div className='flex flex-col' >
