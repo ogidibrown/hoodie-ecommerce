@@ -1,8 +1,8 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 
-export default function Carousel  ({children:Slides}) {
+export default function Carousel  ({children:Slides, autoSlide = false, autoSlideInterval= 2000}) {
 
     const [curr, setCur] = useState(0)
 
@@ -12,6 +12,14 @@ export default function Carousel  ({children:Slides}) {
     const next = ()=>{
         setCur((curr) => (curr === Slides.length -1 ? 0 : curr + 1))
     }
+
+    useEffect(()=>{
+        if (!autoSlide) return
+        const slideInterval = setInterval(next, autoSlideInterval)
+        return ()=> clearInterval(slideInterval)
+        
+    },[])
+
 
   return (
     <div className=' w-full bg-cover overflow-hidden relative'>

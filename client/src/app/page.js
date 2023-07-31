@@ -4,6 +4,8 @@ import HeroSection from './sections/HeroSection'
 import NewProducts from './sections/NewProducts'
 import Nike from './sections/Nike'
 import Lious from './sections/Lious'
+import Essential from './sections/Essential'
+
 
 
 
@@ -15,6 +17,7 @@ export default function Home() {
       <NewProducts/>
       <Nike />
       <Lious/>
+      <Essential />
     </div>
   )
 }
