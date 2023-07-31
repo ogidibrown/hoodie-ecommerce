@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+ 
 exports.createUser = async (req, res) => {
   const { password, email, userName } = req.body;
   const hashedPassword = await bcrypt.hash(password, 12);
@@ -22,7 +23,7 @@ exports.createUser = async (req, res) => {
       id: createdUser.id,
       email: createdUser.email,
     },
-    'secret'
+     `${process.env.JWT_SECRET_TOKEN}`
   );
   res.status(200).json({
     message: createdUser,
@@ -48,7 +49,7 @@ exports.LoginUser = async (req, res) => {
       id: checkUser.id,
       email: checkUser.email,
     },
-    'secret'
+    `${process.env.JWT_SECRET_TOKEN}`
   );
   res.status(200).json({
     id: checkUser.id,
