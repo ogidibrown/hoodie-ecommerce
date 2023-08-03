@@ -9,8 +9,9 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "Email is required"],
     unique: true,
+    match:[!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email), "invalid Email address"]
   },
   password: {
     type: String,

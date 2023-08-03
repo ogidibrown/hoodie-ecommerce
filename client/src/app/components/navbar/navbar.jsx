@@ -42,10 +42,10 @@ const Navbar = () => {
                             <Link href="/contact" >Contact Us</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
-                            <Link href="/signup" >Register</Link>
+                            <Link href="//dashboard/register" >Register</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
-                            <Link href="/login" >Login</Link>
+                            <Link href="/dashboard/login" >Login</Link>
                         </li>
                     </ul>
                 </div>

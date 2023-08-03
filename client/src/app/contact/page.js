@@ -1,9 +1,49 @@
+'use client';
 import React from 'react'
 import Image from 'next/image'
 import AboutImg from 'public/about.png';
 import Stars from 'public/stars.png';
+import { useFormik } from 'formik';
+
+
+const initialValues = {
+    name:"",
+email:"",
+floor:"",
+}
+
+const onSubmit = values => {
+
+}
+
+const validate = values => {
+    let errors = {}
+
+    if(!values.name){
+        errors.name = 'Name is required'
+    }
+
+    if(!values.email){
+        errors.email = 'Name is required'
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+        errors.email ='Invalid email format'
+    }
+
+    
+}
 
 const contact = () => {
+
+const formik =useFormik({
+    initialValues,
+    onSubmit,
+    validate
+
+
+})
+
+   console.log(formik.values);
+
   return (
     <div className='mx-[20px] md:ml-[60px] md:mr-[40px] md:mb-[30px] md:h-[750px] h-[1030px]'>
         <div>
@@ -35,9 +75,21 @@ const contact = () => {
             </div>
             
             <div className='flex md:flex-1  '>
-                <div className='flex bg-[#E9E9E9] rounded-[5px]  m-3 w-[300px] h-[400px]'>
-                    <form action="">
+                <div className='flex bg-[#E9E9E9] rounded-[5px]  m-3 w-[360px] md:w-[400px] h-[400px] flex-col '>
+                    <form onSubmit={formik.handleSubmit} action=" flex flex-col   ">
+                        <h1 className='font-bold ml-[35px] md:ml-[55px] mt-[25px]'>Get Started</h1>
+                        <div className='flex flex-col justify-center gap-3 text-[13px]'>
+                            <input type="text" id='name' name='name' placeholder='Enter Name' onChange={formik.handleChange} value={formik.values.name} className='flex self-center h-[30px] w-[290px] border-2 border-[#E9E9E9] p-2' />
+                            {formik.errors.name ? <div>{formik.errors.name}</div>:null}
 
+                            <input type="email" id='email' name='email' placeholder='Enter Email'  onChange={formik.handleChange} value={formik.values.email} className='flex self-center h-[30px] w-[290px] border-2 border-[#E9E9E9] p-2' />
+                            {formik.errors.email ? <div>{formik.errors.email}</div>:null}
+
+                            <input type="text" id='floor' name='floor' placeholder='floor/suite (optional)'  onChange={formik.handleChange} value={formik.values.floor} className='flex self-center h-[30px] w-[290px]  p-2' />
+                            {/* <textarea cols='10' name='message' placeholder='Enter your message here....'></textarea> */}
+                        </div>
+
+                        <button type='submit'>SUBMIT</button>
                     </form>
 
                 </div>
