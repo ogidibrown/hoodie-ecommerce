@@ -23,6 +23,8 @@ const Navbar = () => {
         <div className='my-[10px]'>
             <div className='flex flex-col md:flex-row justify-center items-center md:flex md:justify-between'>
 
+                  
+
                 <div className='flex '>
                     <ul className='flex gap-4 justify-center items-center text-sm'>
                         <li  className='flex text-[12px] md:text-[16px]'>
@@ -42,7 +44,7 @@ const Navbar = () => {
                             <Link href="/contact" >Contact Us</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
-                            <Link href="//dashboard/register" >Register</Link>
+                              <Link href="//dashboard/register" >Register</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
                             <Link href="/dashboard/login" >Login</Link>
