@@ -45,7 +45,7 @@ const Login = () => {
         console.log(values)
        }}
       >
-        {({ errors, touched}) => (
+        {({ errors, touched, handleBlur, handleChange, values}) => (
           <Form>
              <button type="button" 
               className="w-full text-white bg-blue-600 mb-6 border-0 py-2 px-8 focus:outline-none rounded lg:text-lg text-base"
@@ -68,6 +68,9 @@ const Login = () => {
                type="text" 
                id="full-name" 
                name="email" 
+               values={values.email}
+               onBlur={handleBlur}
+               onChange={handleChange}
                placeholder="Enter your email here" 
                className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-[#0F8649] rounded border border-gray-600 focus:border-[#0F8649] text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
@@ -85,7 +88,10 @@ const Login = () => {
               <Field 
                type={showPassword ? "text" : "password"}
                id="password" 
-               name="password" 
+               name="password"
+               values={values.password}
+               onBlur={handleBlur}
+               onChange={handleChange} 
                placeholder="Enter your password here" 
                className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-[#0F8649] rounded border border-gray-600 focus:border-[#0F8649] text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
