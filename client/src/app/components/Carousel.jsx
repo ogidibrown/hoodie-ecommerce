@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight } from 'react-feather'
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
 export default function Carousel  ({children:Slides, autoSlide = false, autoSlideInterval= 2000}) {
 
@@ -26,7 +26,7 @@ export default function Carousel  ({children:Slides, autoSlide = false, autoSlid
         <div className=' flex transition-transform bg-cover bg-center ease-out duration-500' style={{transform:`translateX(-${curr*100}%)`}}>{Slides}</div>
         <div className='absolute  inset-0 flex items-center justify-between md:mb-10 text-white'>
             <button onClick={prev} className='bg-black flex items-center rounded-full shadow mb-5 ml-3 cursor-pointer '>
-              <ChevronLeft size={40} />
+              <BsChevronLeft size={40} />
             </button>
             <div className='flex flex-col items-center md:min-h-screen md:mt-10 gap-10 md:gap-2 justify-evenly'>
                 <div className="flex justify-center items-center ">
@@ -41,7 +41,7 @@ export default function Carousel  ({children:Slides, autoSlide = false, autoSlid
                 </div>
             </div>
             <button onClick={next} className='bg-black flex items-center rounded-full shadow mb-5 mr-3 cursor-pointer '>
-              <ChevronRight size={40} />
+              <BsChevronRight size={40} />
             </button>
             
         </div>
