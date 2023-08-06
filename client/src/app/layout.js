@@ -1,8 +1,8 @@
 
 import './globals.css'
 import { Inter, Roboto, Poppins } from 'next/font/google'
-import Navbar from './components/navbar/navbar'
-import Footer from './components/footer/footer'
+
+
 import { Providers } from './GlobalRedux/provider'
 import AuthProvider from './components/AuthProvider/AuthProvider'
 
@@ -20,9 +20,8 @@ export default function RootLayout({ children }) {
       <AuthProvider>
           <div className='containers'>
             <Providers>
-              <Navbar/>
                 {children}
-              <Footer/>
+              
             </Providers>
           </div>
       </AuthProvider>
