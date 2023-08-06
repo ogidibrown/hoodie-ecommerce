@@ -9,10 +9,22 @@ import Image from 'next/image'
 import Cart from "../../../../../public/cart.png"
 import { signIn, useSession } from 'next-auth/react'
 
-const Register = () => {
+// import { getSession } from "next-auth/react";
+
+// export async function getServerSideProps(context) {
+//   const session = await getSession(context);
+//   return {
+//     props: {
+//       session,
+//     },
+//   };
+// }
+
+
+const Register = ({ session }) => {
 
   const [showPassword, setShowPassword] = useState(false)
-  const {data:session } = useSession()
+  const { data: session } = useSession()
 
   // If the user is already authenticated, redirect them to login page
   if(session) {
