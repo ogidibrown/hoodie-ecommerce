@@ -28,10 +28,10 @@ const Navbar = () => {
                 <div className='flex '>
                     <ul className='flex gap-4 justify-center items-center text-sm'>
                         <li  className='flex text-[12px] md:text-[16px]'>
-                            <Link href="/" >Seller center</Link>
+                            <Link href="/dashboard/seller" >Seller center</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
-                            <Link href="/" >Download</Link>
+                            <Link href="/dashboard/download" >Download</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
                         <Link href="/about" >About Us</Link>

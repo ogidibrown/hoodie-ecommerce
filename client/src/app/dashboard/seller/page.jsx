@@ -2,7 +2,7 @@
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
-const DashboardPage = () => {
+const SellerPage = () => {
   const { data: session } = useSession(); // Use NextAuth's useSession hook
   const [loading, setLoading] = useState(true);
 
@@ -18,7 +18,7 @@ const DashboardPage = () => {
         <div>Loading...</div>
       ) : session ? (
         <div>
-          Dashboard Content
+          Seller Content
         </div>
       ) : (
         <div>
@@ -29,4 +29,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default SellerPage;
