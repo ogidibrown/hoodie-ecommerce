@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import {signIn} from 'next-auth/react'
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs"
@@ -8,10 +7,18 @@ import { IoLogoGoogle } from "react-icons/io"
 import Link from 'next/link'
 import Image from 'next/image'
 import Cart from "../../../../../public/cart.png"
+import { signIn, useSession } from 'next-auth/react'
 
 const Register = () => {
 
   const [showPassword, setShowPassword] = useState(false)
+  const {data:session } = useSession()
+
+  // If the user is already authenticated, redirect them to login page
+  if(session) {
+   
+    return <p>You are already logged in. Redirecting...</p>
+  }
 
   const registerSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email")
@@ -45,8 +52,17 @@ const Register = () => {
         cpassword: "",
        }}
        validationSchema={registerSchema}
-       onSubmit={values => {
-        console.log(values)
+       onSubmit={async (values) => {
+        try {
+          await signIn("credentials", {
+            redirect: false,
+            email: values.email,
+            password: values.password,
+            cpassword: values.cpassword,
+          })
+        } catch (error) {
+          console.log("Register failer:", error)
+        }
        }}
       >
         {({ errors, touched, handleBlur, handleChange, values}) => (

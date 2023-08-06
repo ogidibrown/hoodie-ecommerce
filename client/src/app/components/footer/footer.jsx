@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className='bg-[#502357] flex flex-col h-[700px]  w-full justify-evenly  '>
       <div className=' mx-[35px] flex flex-col justify-center md:justify-start p-2'>
@@ -79,4 +79,4 @@ const footer = () => {
   )
 }
 
-export default footer
+export default Footer

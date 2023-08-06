@@ -2,11 +2,12 @@
 import { SessionProvider } from 'next-auth/react'
 import React from 'react'
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ Component, pageProps }) => {
   return (
     
-        <SessionProvider>
-            {children}
+        <SessionProvider session={pageProps.session}>
+            {/* {children} */}
+            <Component {...pageProps} />
         </SessionProvider>
     
   )
