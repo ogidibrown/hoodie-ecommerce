@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
           <div className='containers'>
             <Providers>
                 {children}
-              
             </Providers>
           </div>
       </AuthProvider>

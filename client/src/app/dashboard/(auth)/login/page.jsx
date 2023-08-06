@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import {signIn} from 'next-auth/react'
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs"
@@ -8,8 +7,20 @@ import { IoLogoGoogle } from "react-icons/io"
 import Link from 'next/link'
 import Image from 'next/image'
 import Cart from "../../../../../public/cart.png"
+import { signIn } from 'next-auth/react'
 
-const Login = () => {
+// import { getSession } from 'next-auth/react'
+
+// export async function getServerSideProps(context) {
+//   const session = await getSession(context)
+//   return {
+//     props: {
+//       session,
+//     }
+//   }
+// }
+
+const Login = ({ session }) => {
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -24,16 +35,16 @@ const Login = () => {
       )
       .required("Password is required")
   })
-
+ 
   return (
     <div>
       <section className="w-full text-gray-400 bg-[#0F8649] body-font">
-  <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
+  <div className="md:py-24 container px-5 py-10 mx-auto flex flex-wrap items-center">
     <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
         <h1 className="text-center mb-10 title-font font-medium md:text-2xl lg:text-3xl text-base text-white">Ogidi Brown Online Shopping Mall</h1>
-        <Image src={Cart} width={200} height={200} alt="cart" className="md:w-[400px] sm:w-[200px] mx-auto"/> 
+        <Image src={Cart} width={200} height={200} alt="cart" className="md:w-[400px] sm:w-[200px]"/> 
     </div>
-    <div className="lg:w-2/6 md:w-1/2 bg-white rounded-xl p-8 flex flex-col justify-center items-center md:ml-auto w-full mt-10 md:mt-0">
+    <div className="lg:p-0 lg:py-8 lg:px-4 p-8 lg:w-2/6 md:w-1/2 bg-white rounded-xl md:ml-auto w-full mt-10 md:mt-0">
       <h2 className="text-black text-center mb-8 md:text-2xl text-xl font-medium title-font">Welcome to <span className="text-[#0F8649]">Ogidi Brown</span></h2>
       <Formik
        initialValues={{
@@ -41,8 +52,16 @@ const Login = () => {
         password: "",
        }}
        validationSchema={loginSchema}
-       onSubmit={values => {
-        console.log(values)
+       onSubmit={async (values) => {
+        try {
+          await signIn("credentials", {
+            redirect: false, 
+            email: values.email,
+            password: values.password,
+          })
+        } catch (error) {
+          console.log("Login failed:", error)
+        }
        }}
       >
         {({ errors, touched, handleBlur, handleChange, values}) => (
@@ -51,7 +70,7 @@ const Login = () => {
               className="w-full text-white bg-blue-600 mb-6 border-0 py-2 px-8 focus:outline-none rounded lg:text-lg text-base"
               onClick={()=>signIn("google")}
               >
-               <IoLogoGoogle size={30} className="absolute mx-auto"/> 
+               <IoLogoGoogle size={30} className="absolute mx-auto my-auto"/> 
                Login with Google
               </button>
               <div className="flex">
