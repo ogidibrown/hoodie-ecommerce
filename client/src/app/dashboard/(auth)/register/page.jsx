@@ -24,13 +24,13 @@ import { signIn, useSession } from 'next-auth/react'
 const Register = ({ session }) => {
 
   const [showPassword, setShowPassword] = useState(false)
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
 
   // If the user is already authenticated, redirect them to login page
-  if(session) {
+  // if(session) {
    
-    return <p>You are already logged in. Redirecting...</p>
-  }
+  //   return <p>You are already logged in. Redirecting...</p>
+  // }
 
   const registerSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email")
