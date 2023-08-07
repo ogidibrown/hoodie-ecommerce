@@ -9,18 +9,7 @@ import Image from 'next/image'
 import Cart from "../../../../../public/cart.png"
 import { signIn } from 'next-auth/react'
 
-// import { getSession } from 'next-auth/react'
-
-// export async function getServerSideProps(context) {
-//   const session = await getSession(context)
-//   return {
-//     props: {
-//       session,
-//     }
-//   }
-// }
-
-const Login = ({ session }) => {
+const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false)
 
