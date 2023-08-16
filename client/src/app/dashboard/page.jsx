@@ -1,31 +1,31 @@
 'use client'
-import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+// import { useSession } from 'next-auth/react';
+// import { useEffect, useState } from 'react';
 
 const DashboardPage = () => {
-  const { data: session } = useSession(); // Use NextAuth's useSession hook
-  const [loading, setLoading] = useState(true);
+  // const { data: session } = useSession(); // Use NextAuth's useSession hook
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (session) {
-      setLoading(false); // Set loading to false once user session is available
-    }
-  }, [session]);
+  // useEffect(() => {
+  //   if (session) {
+  //     setLoading(false); // Set loading to false once user session is available
+  //   }
+  // }, [session]);
 
   return (
-    <div>
-      {loading ? (
-        <div>Loading...</div>
-      ) : session ? (
+    // <div>
+    //   {loading ? (
+    //     <div>Loading...</div>
+    //   ) : session ? (
         <div>
           Dashboard Content
         </div>
-      ) : (
-        <div>
-          Not authorized. Redirecting...
-        </div>
-      )}
-    </div>
+    //   ) : (
+    //     <div>
+    //       Not authorized. Redirecting...
+    //     </div>
+    //   )}
+    // </div>
   );
 };
 
