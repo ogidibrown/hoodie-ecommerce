@@ -2,11 +2,9 @@
 import React, { useState } from 'react'
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
-import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs"
+import {BsEye, BsEyeSlash } from "react-icons/bs"
 import { IoLogoGoogle } from "react-icons/io"
 import Link from 'next/link'
-import Image from 'next/image'
-import Cart from "../../../../../public/cart.png"
 import { signIn } from 'next-auth/react'
 
 const Login = () => {
@@ -27,13 +25,8 @@ const Login = () => {
  
   return (
     <div>
-      <section className="w-full text-gray-400 bg-[#0F8649] body-font">
-  <div className="md:py-24 container px-5 py-10 mx-auto flex flex-wrap items-center">
-    <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-        <h1 className="text-center mb-10 title-font font-medium md:text-2xl lg:text-3xl text-base text-white">Ogidi Brown Online Shopping Mall</h1>
-        <Image src={Cart} width={200} height={200} alt="cart" className="md:w-[400px] sm:w-[200px]"/> 
-    </div>
-    <div className="lg:p-0 lg:py-8 lg:px-4 p-8 lg:w-2/6 md:w-1/2 bg-white rounded-xl md:ml-auto w-full mt-10 md:mt-0">
+      <section className="w-full xl:px-[25rem] lg:px-[20rem] md:px-[10rem] py-5 px-5 bg-white">
+    <div className="shadow-[0px_8px_16px_#D0D2D5] bg-white py-8 px-10 rounded-xl">
       <h2 className="text-black text-center mb-8 md:text-2xl text-xl font-medium title-font">Welcome to <span className="text-[#0F8649]">Ogidi Brown</span></h2>
       <Formik
        initialValues={{
@@ -56,10 +49,10 @@ const Login = () => {
         {({ errors, touched, handleBlur, handleChange, values}) => (
           <Form>
              <button type="button" 
-              className="w-full text-white bg-blue-600 mb-6 border-0 py-2 px-8 focus:outline-none rounded lg:text-lg text-base"
+              className="w-full text-white bg-blue-600 mb-6 border-0 py-3 px-8 focus:outline-none rounded lg:text-lg text-base"
               onClick={()=>signIn("google")}
               >
-               <IoLogoGoogle size={30} className="absolute mx-auto my-auto"/> 
+               <IoLogoGoogle size={30} className="absolute mx-auto pr-2 my-auto"/> 
                Login with Google
               </button>
               <div className="flex">
@@ -108,9 +101,9 @@ const Login = () => {
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <BsEyeFill size={20} />
+                <BsEye size={20} />
               ) : (
-                <BsEyeSlashFill size={20} />
+                <BsEyeSlash size={20} />
               )}
             </div>
               {errors.password && touched.password ? (
@@ -147,7 +140,6 @@ const Login = () => {
         )}
       </Formik>
     </div>
-  </div>
 </section>
     </div>
   )
