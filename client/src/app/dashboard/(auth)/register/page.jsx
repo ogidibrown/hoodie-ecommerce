@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
-import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs"
+import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { IoLogoGoogle } from "react-icons/io"
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,7 +10,7 @@ import Cart from "../../../../../public/cart.png"
 import { signIn } from 'next-auth/react'
 
 
-const Register = () => {
+const Register = ({ session }) => {
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -30,11 +30,9 @@ const Register = () => {
   })
 
   return (
-    
-     <section className="w-ful m-5 flex justify-center items-center self-center h-full text-gray-400  ">
-  <div className=" flex justify-center items-center self-center w-[500px] rounded-xl h-[630px] bg-white">
-    
-    <div className=" bg-gray-200 rounded-xl  w-[400px] p-8 m-10 ">
+    <>
+     <section className="w-full h-[100vh] flex flex-col justify-center items-center md:px-0 px-5 bg-gray-100">
+    <div className="shadow-[0px_8px_16px_#D0D2D5] bg-white py-8 px-10 rounded-xl">
       <h2 className="text-black text-center mb-8 md:text-2xl text-xl font-medium title-font">Welcome to <span className="text-[#0F8649]">Ogidi Brown</span></h2>
       <Formik
        initialValues={{
@@ -66,9 +64,9 @@ const Register = () => {
                Sign Up with Google
               </button>
               <div className="flex">
-                <hr className="relative text-white top-3 w-[20%]"/>
+                <hr className="relative top-3 w-[20%]"/>
                 <span className="mx-auto">or continue with email</span>
-                <hr className="relative text-white top-3 w-[20%]"/>
+                <hr className="relative top-3 w-[20%]"/>
               </div>
             <div className="relative mb-4">
               <label htmlFor="email" className="leading-10 text-lg text-black"
@@ -111,9 +109,9 @@ const Register = () => {
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <BsEyeFill size={20} />
+                <BsEye size={20} />
               ) : (
-                <BsEyeSlashFill size={20} />
+                <BsEyeSlash size={20} />
               )}
             </div>
               {errors.password && touched.password ? (
@@ -121,7 +119,37 @@ const Register = () => {
                   {errors.password}
                 </div>
               ) : null}
-              
+               <div className="relative mb-4 mt-4">
+              <label htmlFor="cpassword" className="leading-10 text-lg text-black"
+              >
+              Confirm Password
+              </label>
+              <Field 
+               type={showPassword ? "text" : "password"}
+               id="cpassword" 
+               name="cpassword" 
+               values={values.cpassword}
+               onBlur={handleBlur}
+               onChange={handleChange}
+               placeholder="Confirm password here" 
+               className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-[#0F8649] rounded border border-gray-600 focus:border-[#0F8649] text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+              <div
+              className="absolute top-11 right-0 px-3 py-2 cursor-pointer"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? (
+                <BsEye size={20} />
+              ) : (
+                <BsEyeSlash size={20} />
+              )}
+            </div>
+              {errors.cpassword && touched.cpassword ? (
+                <div className="text-xs text-[red] mt-2">
+                  {errors.cpassword}
+                </div>
+              ) : null}
+               </div>
             </div>
             <button 
              type="submit" 
@@ -150,10 +178,9 @@ const Register = () => {
         )}
       </Formik>
     </div>
-  </div>
 </section>
-    
+    </>
   )
 }
 
-export default Register;
+export default Register
