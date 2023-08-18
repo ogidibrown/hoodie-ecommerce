@@ -5,8 +5,6 @@ import * as Yup from "yup"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { IoLogoGoogle } from "react-icons/io"
 import Link from 'next/link'
-import Image from 'next/image'
-import Cart from "../../../../../public/cart.png"
 import { signIn } from 'next-auth/react'
 
 
