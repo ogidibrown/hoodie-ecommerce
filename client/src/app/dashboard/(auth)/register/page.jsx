@@ -10,7 +10,7 @@ import Cart from "../../../../../public/cart.png"
 import { signIn } from 'next-auth/react'
 
 
-const Register = ({ session }) => {
+const Register = () => {
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -183,4 +183,4 @@ const Register = ({ session }) => {
   )
 }
 
-export default Register
+export default Register;
