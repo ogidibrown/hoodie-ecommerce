@@ -26,14 +26,11 @@ const Login = () => {
   })
  
   return (
-    <div>
-      <section className="w-full text-gray-400 bg-[#0F8649] body-font">
-  <div className="md:py-24 container px-5 py-10 mx-auto flex flex-wrap items-center">
-    <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-        <h1 className="text-center mb-10 title-font font-medium md:text-2xl lg:text-3xl text-base text-white">Ogidi Brown Online Shopping Mall</h1>
-        <Image src={Cart} width={200} height={200} alt="cart" className="md:w-[400px] sm:w-[200px]"/> 
-    </div>
-    <div className="lg:p-0 lg:py-8 lg:px-4 p-8 lg:w-2/6 md:w-1/2 bg-white rounded-xl md:ml-auto w-full mt-10 md:mt-0">
+    
+      <section className="w-ful m-5 flex justify-center items-center self-center h-full text-gray-400  ">
+  <div className=" flex justify-center items-center self-center w-[500px] rounded-xl h-[630px] bg-white">
+    
+    <div className=" bg-gray-200 rounded-xl  w-[400px] p-8 m-10 ">
       <h2 className="text-black text-center mb-8 md:text-2xl text-xl font-medium title-font">Welcome to <span className="text-[#0F8649]">Ogidi Brown</span></h2>
       <Formik
        initialValues={{
@@ -63,9 +60,9 @@ const Login = () => {
                Login with Google
               </button>
               <div className="flex">
-                <hr className="relative top-3 w-[20%]"/>
+                <hr className="relative  top-3 w-[20%]"/>
                 <span className="mx-auto">or continue with email</span>
-                <hr className="relative top-3 w-[20%]"/>
+                <hr className="relative top-3  w-[20%]"/>
               </div>
             <div className="relative mb-4">
               <label htmlFor="email" className="leading-10 text-lg text-black"
@@ -149,7 +146,7 @@ const Login = () => {
     </div>
   </div>
 </section>
-    </div>
+   
   )
 }
 
