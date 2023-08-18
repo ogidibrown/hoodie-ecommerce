@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Logo from '../../../../public/logo1.png'
 import {FaBars, FaShoppingCart} from 'react-icons/fa'
@@ -16,6 +16,12 @@ import { BsPerson } from "react-icons/bs";
 const Navbar = () => {
 
     const dispatch = useDispatch();
+    
+
+
+   
+    
+   
     
 
   return (
@@ -43,12 +49,16 @@ const Navbar = () => {
                         <li className='flex text-[12px] md:text-[16px]'>
                             <Link href="/contact" >Contact Us</Link>
                         </li>
-                        <li className='flex text-[12px] md:text-[16px]'>
-                              <Link href="//dashboard/register" >Register</Link>
+                        
+                    
+                        <li className="flex text-[12px] md:text-[16px]">
+                                  <Link href="/dashboard/login">
+                                      Login
+                                  </Link>
                         </li>
-                        <li className='flex text-[12px] md:text-[16px]'>
-                            <Link href="/dashboard/login" >Login</Link>
-                        </li>
+                     
+                        
+                        
                     </ul>
                 </div>
             </div>

@@ -24,7 +24,7 @@ const Login = () => {
   })
  
   return (
-    <div>
+    <>
       <section className="w-full h-[100vh] flex flex-col justify-center items-center md:px-0 px-5 bg-gray-100">
     <div className="shadow-[0px_8px_16px_#D0D2D5] bg-white py-8 px-10 rounded-xl">
       <h2 className="text-black text-center mb-8 md:text-2xl text-xl font-medium title-font">Welcome to <span className="text-[#0F8649]">Ogidi Brown</span></h2>
@@ -141,7 +141,7 @@ const Login = () => {
       </Formik>
     </div>
 </section>
-    </div>
+    </>
   )
 }
 
