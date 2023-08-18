@@ -59,7 +59,7 @@ const Products = () => {
       <div className='grid grid-cols-2 lg:grid-cols-3 gap-6 pt-4'>
         {hoodies.map((item, index) => (
           <div key={index} className='flex shadow-lg hover:scale-105 duration-300  flex-col m-3 rounded-md border-2 border-green-600 h-[400px] md:h-[500px]'>
-            <div className='text-white absolute bg-green-500 p-2'>Available</div>
+            <div className='text-white bg-green-500 duration-300 absolute p-2'>Available</div>
             <div className='bg-gray-300 h-[350px] w-full flex justify-center items-center self-center'>
               <Image src={item.image} alt={item.name} width={300} height={300} className='object-cover md:w-[300px] md:p-5 md:h-[380px]'  />
             </div>
