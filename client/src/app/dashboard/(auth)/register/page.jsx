@@ -2,11 +2,9 @@
 import React, { useState } from 'react'
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
-import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs"
+import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { IoLogoGoogle } from "react-icons/io"
 import Link from 'next/link'
-import Image from 'next/image'
-import Cart from "../../../../../public/cart.png"
 import { signIn } from 'next-auth/react'
 
 
@@ -30,14 +28,9 @@ const Register = () => {
   })
 
   return (
-    <div>
-      <section className="w-full text-gray-400 bg-[#0F8649] body-font">
-  <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
-    <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-        <h1 className="text-center mb-10 title-font font-medium md:text-2xl lg:text-3xl text-base text-white">Ogidi Brown Online Shopping Mall</h1>
-        <Image src={Cart} width={200} height={200} alt="cart" className="md:w-[400px] sm:w-[200px] mx-auto"/> 
-    </div>
-    <div className="lg:w-2/6 md:w-1/2 bg-white rounded-xl p-8 flex flex-col justify-center items-center md:ml-auto w-full mt-10 md:mt-0">
+    <>
+     <section className="w-full h-[100vh] flex flex-col justify-center items-center md:px-0 px-5 bg-gray-100">
+    <div className="shadow-[0px_8px_16px_#D0D2D5] bg-white py-8 px-10 rounded-xl">
       <h2 className="text-black text-center mb-8 md:text-2xl text-xl font-medium title-font">Welcome to <span className="text-[#0F8649]">Ogidi Brown</span></h2>
       <Formik
        initialValues={{
@@ -114,9 +107,9 @@ const Register = () => {
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <BsEyeFill size={20} />
+                <BsEye size={20} />
               ) : (
-                <BsEyeSlashFill size={20} />
+                <BsEyeSlash size={20} />
               )}
             </div>
               {errors.password && touched.password ? (
@@ -144,9 +137,9 @@ const Register = () => {
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <BsEyeFill size={20} />
+                <BsEye size={20} />
               ) : (
-                <BsEyeSlashFill size={20} />
+                <BsEyeSlash size={20} />
               )}
             </div>
               {errors.cpassword && touched.cpassword ? (
@@ -183,9 +176,8 @@ const Register = () => {
         )}
       </Formik>
     </div>
-  </div>
 </section>
-    </div>
+    </>
   )
 }
 
