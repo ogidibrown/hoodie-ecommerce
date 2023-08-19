@@ -7,7 +7,12 @@ import {
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import { PrismaService } from 'src/prisma/prisma.service';
-interface UserData {
+interface CreateUserData {
+  name: string;
+  email: string;
+  password: string;
+}
+interface LoginUserData {
   email: string;
   password: string;
 }
@@ -15,7 +20,7 @@ interface UserData {
 export class AuthService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async createAcct({ email, password }: UserData) {
+  async createAcct({ name, email, password }: CreateUserData) {
     //check email
     const emailExist = await this.prismaService.user.findUnique({
       where: { email },
@@ -31,6 +36,7 @@ export class AuthService {
     // create token
     const user = await this.prismaService.user.create({
       data: {
+        name,
         email,
         password: hashPassword,
       },
@@ -42,14 +48,16 @@ export class AuthService {
     return { user, token };
   }
 
-  async loginUserAcct({ email, password }: UserData) {
+  async loginUserAcct({ email, password }: LoginUserData) {
     //check email
     const user = await this.prismaService.user.findUnique({
       where: {
         email,
       },
     });
-    if (!user) throw new NotFoundException('user does not found');
+    if (!user) {
+      throw new NotFoundException('user does not exist');
+    }
     //compare password
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect)
