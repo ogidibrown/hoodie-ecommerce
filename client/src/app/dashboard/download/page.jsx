@@ -2,7 +2,7 @@ import React from 'react'
 
 const Download = () => {
   return (
-    <div>Download</div>
+    <div>Downloadsasadfasfsdsdgsgd</div>
   )
 }
 
