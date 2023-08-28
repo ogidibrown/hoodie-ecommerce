@@ -42,15 +42,15 @@ const Login = () => {
     email: Yup.string()
       .email('Invalid email')
       .required('Your email is required'),
-    password: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .required('Password is required'),
+      password: Yup.string()
+      .min(8, "Password must be at least 8 characters")
+      .required("Password is required"),
   });
   const errorhandler = () => {
     setError(null);
   };
   return (
-    <React.Fragment>
+    <>
       <section className="w-full h-[100vh] flex flex-col justify-center items-center md:px-0 px-5 bg-gray-100">
         {isLoading && <LoadingSpinner asOverlay />}
         <div className="shadow-[0px_8px_16px_#D0D2D5] bg-white py-8 px-10 rounded-xl">
@@ -138,7 +138,7 @@ const Login = () => {
                       {errors.password}
                     </div>
                   ) : null}
-                  <Link href="/" className="text-xs text-[#0F8649]">
+                  <Link href="/" className="text-sm text-blue-600">
                     Forgot your password?
                   </Link>
                 </div>
@@ -150,11 +150,11 @@ const Login = () => {
                 </button>
                 <p className="text-center text-xs text-black mb-4">
                   By continuing, you agree to Ogidi Brown's{' '}
-                  <Link href="/" className="text-[#0F8649]">
+                  <Link href="/" className="text-blue-600">
                     Terms and Conditions
                   </Link>{' '}
                   and{' '}
-                  <Link href="/" className="text-[#0F8649]">
+                  <Link href="/" className="text-blue-600">
                     Privacy Policy
                   </Link>
                   .
@@ -163,7 +163,7 @@ const Login = () => {
                   Don't have an account?{' '}
                   <Link
                     href="/dashboard/register"
-                    className="text-center text-xs text-[#0F8649]"
+                    className="text-center text-xs text-blue-600"
                   >
                     Register
                   </Link>
@@ -173,7 +173,7 @@ const Login = () => {
           </Formik>
         </div>
       </section>
-    </React.Fragment>
+    </>
   );
 };
 

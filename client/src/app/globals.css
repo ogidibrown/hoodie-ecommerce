@@ -9,7 +9,6 @@ body {
   font-family: "Manrope", sans-serif;
   -ms-overflow-style: none; 
   scrollbar-width: none;  
-  /* overflow-y: hidden; */
   overflow-x: hidden; 
 }
 
