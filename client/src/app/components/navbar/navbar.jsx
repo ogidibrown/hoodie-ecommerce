@@ -34,7 +34,7 @@ const Navbar = () => {
                 <div className='flex '>
                     <ul className='flex gap-4 justify-center items-center text-sm'>
                         <li  className='flex text-[12px] md:text-[16px]'>
-                            <Link href="/dashboard/seller" >Seller center</Link>
+                            <Link href="/dashboard/sell-center" >Seller Center</Link>
                         </li>
                         <li className='flex text-[12px] md:text-[16px]'>
                             <Link href="/dashboard/download" >Download</Link>
